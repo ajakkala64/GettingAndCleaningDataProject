@@ -62,10 +62,11 @@ colnames(subData) <- gsub("-meanFreq\\(\\)"," Mean Frequency",names(subData))
 colnames(subData) <- gsub("^t","Time ",names(subData))
 colnames(subData) <- gsub("^f","Frequency ",names(subData))
 
+write.table(subData,"analysis_data.txt")
 
 ### 5. create a new dataset, the average of each variable for each activity and each subject. 
 ##
 groupData <- subData  %>% group_by(SubjectID,Activity) %>% summarise_each(funs(mean))
 
 ## Write tidy data to a file.
-write.table(groupData, "analysis_data.txt",row.name = FALSE)
+write.table(groupData, "average_data.txt",row.name = FALSE)

@@ -33,4 +33,5 @@ Follow the following steps to run the script.
 * Extract the the files to current working directory
 * Run the R script run_analisys.R
 
-This will genereate analysis_data.txt contains the average for each activity and subject. Refer to the CodeBook.md for detailed analysis.
+This will genereate analysis_data.txt contains the tidy data as per the step 4. 
+average_data.txt is created in step 5. Refer to the CodeBook.md for detailed analysis.

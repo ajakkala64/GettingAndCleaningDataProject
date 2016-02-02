@@ -106,6 +106,7 @@ The following rules applied to substitue variable names.
 -meanFreq() Mean Frequency
 Names starting with t is Time sampling
 Names starting with f is frequency sampling and updated appropriatly.
+Write the data to a file analysis_data.txt
 
 ```r
 colnames(subData) <- gsub("-mean\\(\\)"," Mean",names(subData))
@@ -113,16 +114,22 @@ colnames(subData) <- gsub("-std\\(\\)"," Standard Deviation",names(subData))
 colnames(subData) <- gsub("-meanFreq\\(\\)"," Mean Frequency",names(subData))
 colnames(subData) <- gsub("^t","Time ",names(subData))
 colnames(subData) <- gsub("^f","Frequency ",names(subData))
+wriete.table("analysis_data.txt")
+```
+
+```
+## Error in eval(expr, envir, enclos): could not find function "wriete.table"
 ```
 ### 5. Create a new data set by averaging Subject and Activity.
 Created grouped average data and write the data frame to a file.
-New tidy data set is stored in analysis_data.txt after removing row names.
+New tidy data set is stored in average_data.txt after removing row names.
+Sample data from the data frame is printed below
 
 ```r
 suppressWarnings(suppressMessages(library(dplyr)))
 groupData <- subData  %>% group_by(SubjectID,Activity) %>% summarise_each(funs(mean))
 
-write.table(groupData, "analysis_data.txt",row.name = FALSE)
+write.table(groupData, "average_data.txt",row.name = FALSE)
 
 suppressWarnings(suppressMessages(library(knitr)))
 kable(groupData[1:5,1:7])
