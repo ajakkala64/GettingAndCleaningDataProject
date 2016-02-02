@@ -114,12 +114,7 @@ colnames(subData) <- gsub("-std\\(\\)"," Standard Deviation",names(subData))
 colnames(subData) <- gsub("-meanFreq\\(\\)"," Mean Frequency",names(subData))
 colnames(subData) <- gsub("^t","Time ",names(subData))
 colnames(subData) <- gsub("^f","Frequency ",names(subData))
-write.table("analysis_data.txt")
-```
-
-```
-## "x"
-## "1" "analysis_data.txt"
+write.table(subData,"analysis_data.txt")
 ```
 ### 5. Create a new data set by averaging Subject and Activity.
 Created grouped average data and write the data frame to a file.
