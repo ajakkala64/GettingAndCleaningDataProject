@@ -10,6 +10,7 @@
 ##
 ## ===================================================================
 ### file location
+library(dplyr)
 featuresFile <- "./UCI HAR Dataset/features.txt"
 
 trainIdFile <- "./UCI HAR Dataset/train/subject_train.txt"
@@ -23,7 +24,7 @@ ytestFile <- "./UCI HAR Dataset/test/y_test.txt"
 ## Read features file
 dataHdr <- read.table(featuresFile)
 
-## Read train data
+## Read training data
 trainId <- read.table(trainIdFile)
 trainLabel <- read.table(ytrainFile)
 trainSet <- read.table(xtrainFile)
@@ -65,7 +66,6 @@ colnames(subData) <- gsub("^f","Frequency ",names(subData))
 ### 5. create a new dataset, the average of each variable for each activity and each subject. 
 ##
 groupData <- subData  %>% group_by(SubjectID,Activity) %>% summarise_each(funs(mean))
-
 
 ## Write tidy data to a file.
 write.table(groupData, "analysis_data.txt",row.name = FALSE)
