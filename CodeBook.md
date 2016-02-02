@@ -1,9 +1,7 @@
----
-title: "Getting and Cleaning Data Course Project"
-author: "Jayarama Ajakkala"
-date: "January 31, 2016"
-output: html_document
----
+# Getting and Cleaning Data Course Project
+####  Author : Jayarama Ajakkala
+#### Date: January 31, 2016
+
 The purpose of this project is to prepare tidy data which can be used for later analysis. Raw data from wearable device experiments conducted by SmartLab is used in the project. 
 The data linked to from the course website represent data collected from the accelerometers from the Samsung Galaxy S smartphone. A full description is available at the site where the data was obtained:
 
